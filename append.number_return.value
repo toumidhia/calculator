@@ -1,0 +1,17 @@
+from unittest.mock import patch
+
+@patch.object(Calculator, 'appendNumber')
+def test_append_number_mock(mock_append_number):
+  # Create a calculator instance
+  calculator = Calculator(previousOperandTextElement, currentOperandTextElement)
+
+  # Mock the appendNumber method to always return "X"
+  mock_append_number.return_value = "X"
+
+  # Simulate button click
+  calculator.appendNumber("1")
+
+  # Assert that the current operand is "X" (not "1")
+  assert calculator.currentOperand == "X"
+
+  # You can further test different scenarios by changing mock_append_number.return_value
