@@ -1,0 +1,9 @@
+from unittest.mock import patch
+
+@patch.object(calculator, 'updateDisplay')
+def test_update_display_mock(mock_update_display):
+  # Simulate button click
+  calculator.appendNumber("1")
+
+  # Assert that updateDisplay wasn't called (because mocked)
+  mock_update_display.assert_not_called()
