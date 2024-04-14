@@ -1,0 +1,17 @@
+from unittest.mock import patch
+
+@patch.object(Calculator, 'compute')
+def test_compute_mock(mock_compute):
+  # Mock the compute method to return a specific value
+  mock_compute.side_effect = lambda: 10
+
+  # Simulate button clicks leading to computation
+  calculator.previousOperand = "5"
+  calculator.currentOperand = "5"
+  calculator.operation = "+"
+  calculator.compute()
+
+  # Assert that the current operand is 10 (result of computation)
+  assert calculator.currentOperand == 10
+  
+  # You can define different side effects for various scenarios
